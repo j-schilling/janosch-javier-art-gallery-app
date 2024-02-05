@@ -1,7 +1,7 @@
 import { Card, Image, Text, Group, RingProgress } from "@mantine/core";
 import classes from "./ArtPiecePreview.module.css";
 
-export function ArtPiecePreview({ image, title, artist }) {
+export function ArtPiecePreview({ image, title = "", artist }) {
   return (
     <Card withBorder padding="lg" className={classes.card}>
       <Card.Section>
@@ -13,7 +13,7 @@ export function ArtPiecePreview({ image, title, artist }) {
           {title}
         </Text>
         <Group gap={5}>
-          <Text fz="xs" c="dimmed">
+          <Text fz="sm" fw={700}>
             {artist}
           </Text>
         </Group>
