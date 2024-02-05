@@ -1,6 +1,6 @@
 import Spotlight from "@/components/Spotlight";
 
-export default function HomePage({ globalData }) {
+export default function SpotlightPage({ globalData }) {
   return (
     <div>
       <Spotlight {...globalData} />
