@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import "@mantine/core/styles.css";
 import { createTheme, MantineProvider } from "@mantine/core";
+import Layout from "@/components/Layout";
 
 const theme = createTheme({
   fontFamily: "Open Sans, sans-serif",
@@ -20,6 +21,7 @@ export default function App({ Component, pageProps }) {
     <>
       <MantineProvider theme={theme}>
         <Component {...pageProps} globalData={data} />
+        <Layout />
       </MantineProvider>
     </>
   );

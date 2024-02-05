@@ -1,5 +1,5 @@
 import { ArtPiecePreview } from "../ArtPiecePreview";
-import clasess from "./Spotlight.module.css";
+import classes from "./Spotlight.module.css";
 
 export default function Spotlight(props) {
   function getRandom(max) {
@@ -12,7 +12,7 @@ export default function Spotlight(props) {
   const { imageSource, artist } = randomObjectElement;
 
   return (
-    <div className={clasess.spotlight}>
+    <div className={classes.spotlight}>
       <ArtPiecePreview image={imageSource} artist={artist} />
     </div>
   );
