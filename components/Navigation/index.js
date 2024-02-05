@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Container, Group, Burger } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-// import { MantineLogo } from "@mantinex/mantine-logo";
+import Link from "next/link";
+import { Container, Group } from "@mantine/core";
 import classes from "./Navigation.module.css";
 
 const links = [
@@ -11,34 +10,27 @@ const links = [
 ];
 
 export function Navigation() {
-  const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
 
   const items = links.map((link) => (
-    <a
+    <Link
       key={link.label}
       href={link.link}
       className={classes.link}
       data-active={active === link.link || undefined}
-      onClick={(event) => {
-        event.preventDefault();
+      onClick={() => {
         setActive(link.link);
       }}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (
-    <header className={classes.header}>
+    <div className={classes.footer}>
       <Container size="md" className={classes.inner}>
-        <h1>HelloLogo</h1>
-        <Group gap={5} visibleFrom="xs">
-          {items}
-        </Group>
-
-        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+        <Group gap={5}>{items}</Group>
       </Container>
-    </header>
+    </div>
   );
 }
