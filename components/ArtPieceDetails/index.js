@@ -1,9 +1,25 @@
 import { Card, Image, Text, Group, Button } from "@mantine/core";
 import classes from "./ArtPieceDetails.module.css";
 import Link from "next/link";
+import { useArtPieces } from "@/context/ArtPiecesContext";
 import CommentForm from "../CommentForm";
+import Comments from "../Comments";
 
-export default function ArtPieceDetails({ image, title, artist, year, genre }) {
+export default function ArtPieceDetails({ ...props }) {
+  const { imageSource: image, name: title, artist, year, genre } = props;
+  const { addComment } = useArtPieces();
+
+  function onSubmitComment(e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const { commentInput } = Object.fromEntries(formData);
+
+    addComment(props, commentInput);
+
+    e.target.reset();
+  }
+
   return (
     <>
       <Card withBorder padding="lg" className={classes.card}>
@@ -47,7 +63,8 @@ export default function ArtPieceDetails({ image, title, artist, year, genre }) {
       <Link href="/art-pieces">
         <Button className={classes.backbutton}>Back to overview</Button>
       </Link>
-      <CommentForm />
+      <CommentForm onSubmitComment={onSubmitComment} />
+      <Comments />
     </>
   );
 }

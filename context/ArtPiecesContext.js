@@ -7,7 +7,6 @@ export const useArtPieces = () => useContext(ArtPiecesContext);
 export const ArtPiecesProvider = ({ children }) => {
   const [artPiecesInfo, setArtPiecesInfo] = useState({});
 
-
   const toggleFavorite = (artPiece) => {
     const { slug } = artPiece;
 
@@ -21,14 +20,27 @@ export const ArtPiecesProvider = ({ children }) => {
     }));
   };
 
-  const addComment = (slug) => {
-    setArtPiecesInfo((currentInfo) => ({
-      ...currentInfo,
-      [slug]: {
-        ...currentInfo[slug],
-        comments: [...commments, newComment],
-      },
-    }));
+  const addComment = (artPiece, comment) => {
+    const { slug } = artPiece;
+
+    setArtPiecesInfo((currentInfo) => {
+      const existingComments = currentInfo[slug]?.comments || [];
+      const currentDate = new Date();
+      return {
+        ...currentInfo,
+        [slug]: {
+          ...currentInfo[slug],
+          comments: [
+            ...existingComments,
+            {
+              date: currentDate.toLocaleDateString(),
+              time: currentDate.toLocaleTimeString(),
+              comment: comment,
+            },
+          ],
+        },
+      };
+    });
   };
 
   return (

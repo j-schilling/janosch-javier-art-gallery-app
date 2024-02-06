@@ -1,5 +1,5 @@
 import { Text, Group } from "@mantine/core";
-import classes from "./CommentForm.module.css";
+import classes from "./Comments.module.css";
 
 export default function Comments({ comments }) {
   return (
