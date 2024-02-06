@@ -1,6 +1,7 @@
 import { Card, Image, Text, Group, Button } from "@mantine/core";
 import classes from "./ArtPieceDetails.module.css";
 import Link from "next/link";
+import CommentForm from "../CommentForm";
 
 export default function ArtPieceDetails({ image, title, artist, year, genre }) {
   return (
@@ -46,6 +47,7 @@ export default function ArtPieceDetails({ image, title, artist, year, genre }) {
       <Link href="/art-pieces">
         <Button className={classes.backbutton}>Back to overview</Button>
       </Link>
+      <CommentForm />
     </>
   );
 }
