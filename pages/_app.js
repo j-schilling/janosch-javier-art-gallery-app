@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import { useState } from "react";
 import "@mantine/core/styles.css";
 import { createTheme, MantineProvider, GlobalStyles } from "@mantine/core";
 import Layout from "@/components/Layout";
@@ -13,6 +14,7 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
   const { data, error, isLoading } = useSWR(API_URL, fetcher);
+  const [artPiecesInfo, setArtPiecesInfo] = useState(null);
 
   if (isLoading) return <h1>Loading...</h1>;
   if (error) return <h1>Error...</h1>;
@@ -20,7 +22,11 @@ export default function App({ Component, pageProps }) {
   return (
     <MantineProvider theme={theme} defaultColorScheme="dark">
       <Layout>
-        <Component {...pageProps} globalData={data} />
+        <Component
+          {...pageProps}
+          globalData={data}
+          artPiecesInfo={artPiecesInfo}
+        />
       </Layout>
     </MantineProvider>
   );
