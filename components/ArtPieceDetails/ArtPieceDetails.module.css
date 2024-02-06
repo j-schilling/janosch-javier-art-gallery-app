@@ -16,6 +16,7 @@
   line-height: 1;
 }
 
-.detaillink {
-  text-decoration: none;
+.backbutton {
+  background-color: gray;
+  margin: 30px;
 }
