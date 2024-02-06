@@ -1,8 +1,11 @@
 .footer {
-  margin-bottom: auto;
   background-color: var(--mantine-color-body);
   border-bottom: rem(1px) solid
     light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
 }
 
 .inner {
