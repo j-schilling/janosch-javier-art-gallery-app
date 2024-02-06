@@ -7,10 +7,12 @@ export const useArtPieces = () => useContext(ArtPiecesContext);
 export const ArtPiecesProvider = ({ children }) => {
   const [artPiecesInfo, setArtPiecesInfo] = useState({});
 
-  const toggleFavorite = (slug) => {
+  const toggleFavorite = (artPiece) => {
+    const { slug } = artPiece;
     setArtPiecesInfo((currentInfo) => ({
       ...currentInfo,
       [slug]: {
+        ...artPiece,
         ...currentInfo[slug],
         isFavorite: !currentInfo[slug]?.isFavorite,
       },

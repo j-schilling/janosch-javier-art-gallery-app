@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useArtPieces } from "@/context/ArtPiecesContext";
 import FavoriteButton from "../FavoriteButton";
 
-export function ArtPiecePreview({ image, title = "", artist, slug }) {
+export function ArtPiecePreview({ ...props }) {
+  const { imageSource: image, name: title = "", artist, slug } = props;
   const { artPiecesInfo, toggleFavorite } = useArtPieces();
   const isFavorite = artPiecesInfo[slug]?.isFavorite || false;
 
@@ -30,7 +31,7 @@ export function ArtPiecePreview({ image, title = "", artist, slug }) {
       </Link>
       <FavoriteButton
         isFavorite={isFavorite}
-        onToggleFavorite={() => toggleFavorite(slug)}
+        onToggleFavorite={() => toggleFavorite(props)}
       />
     </>
   );
