@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function ArtPiecePreview({ image, title = "", artist, slug }) {
   return (
-    <Link href={`/art-pieces/${slug}`}>
+    <Link href={`/art-pieces/${slug}`} className={classes.detaillink}>
       <Card withBorder padding="lg" className={classes.card}>
         <Card.Section>
           <Image src={image} alt={title} height={400} />
