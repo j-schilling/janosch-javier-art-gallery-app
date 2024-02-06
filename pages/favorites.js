@@ -10,7 +10,6 @@ export default function Favorites() {
     .map(([slug, piece]) => ({
       ...piece,
     }));
-  console.log(favoritePieces);
 
   return (
     <div>

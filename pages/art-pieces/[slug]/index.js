@@ -7,6 +7,5 @@ export default function DetailPage({ globalData }) {
   const artPieceData = globalData.find(
     ({ slug }) => slug === router.query.slug
   );
-  console.log("artPieceData: ", artPieceData);
   return <ArtPieceDetails {...artPieceData} />;
 }
