@@ -41,7 +41,7 @@ export default function Spotlight(props) {
         isFavorite={isFavorite}
         onToggleFavorite={(e) => {
           e.preventDefault();
-          toggleFavorite(slug);
+          toggleFavorite(randomArtPiece);
         }}
       />
     </div>
