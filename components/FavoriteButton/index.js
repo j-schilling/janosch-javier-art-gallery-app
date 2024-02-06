@@ -1,6 +1,6 @@
 export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
   return (
-    <button onClick={onToggleFavorite}>
+    <button type="button" onClick={onToggleFavorite}>
       {isFavorite ? "❤️ Unfavorite" : "🤍 Favorite"}
     </button>
   );

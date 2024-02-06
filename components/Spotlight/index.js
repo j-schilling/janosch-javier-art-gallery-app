@@ -1,15 +1,28 @@
-import { Card, Image, Text, Group, RingProgress } from "@mantine/core";
+import { useEffect, useState } from "react";
+import { Card, Image, Text, Group } from "@mantine/core";
 import classes from "./Spotlight.module.css";
+import { useArtPieces } from "@/context/ArtPiecesContext";
+import FavoriteButton from "../FavoriteButton";
 
 export default function Spotlight(props) {
-  function getRandom(max) {
-    return Math.floor(Math.random() * max);
-  }
-  const arrayLength = Object.entries(props).length;
-  const randomIndex = getRandom(arrayLength);
-  const randomObjectElement = props[randomIndex];
+  const { artPiecesInfo, toggleFavorite } = useArtPieces();
+  const [randomArtPiece, setRandomArtPiece] = useState(null);
 
-  const { imageSource, artist, name } = randomObjectElement;
+  useEffect(() => {
+    function getRandom(max) {
+      return Math.floor(Math.random() * max);
+    }
+    const arrayLength = Object.entries(props).length;
+    const randomIndex = getRandom(arrayLength);
+    const randomObjectElement = props[randomIndex];
+
+    setRandomArtPiece(randomObjectElement);
+  }, [props]);
+
+  if (!randomArtPiece) return null;
+
+  const { imageSource, artist, name, slug } = randomArtPiece;
+  const isFavorite = artPiecesInfo[slug]?.isFavorite || false;
 
   return (
     <div className={classes.spotlight}>
@@ -24,6 +37,13 @@ export default function Spotlight(props) {
           </Text>
         </Group>
       </Card>
+      <FavoriteButton
+        isFavorite={isFavorite}
+        onToggleFavorite={(e) => {
+          e.preventDefault();
+          toggleFavorite(slug);
+        }}
+      />
     </div>
   );
 }
