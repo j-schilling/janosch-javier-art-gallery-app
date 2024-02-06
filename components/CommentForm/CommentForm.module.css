@@ -1,0 +1,27 @@
+.root {
+  position: relative;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  height: rem(54px);
+  padding-top: rem(18px);
+  margin-bottom: 40px;
+}
+
+.label {
+  position: absolute;
+  pointer-events: none;
+  font-size: var(--mantine-font-size-xs);
+  padding-left: var(--mantine-spacing-sm);
+  padding-top: calc(var(--mantine-spacing-sm) / 2);
+  z-index: 1;
+}
+.submitbutton {
+  margin-bottom: 100px;
+  width: fit-content;
+}
