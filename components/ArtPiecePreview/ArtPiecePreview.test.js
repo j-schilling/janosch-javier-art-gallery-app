@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { MantineProvider, createTheme } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 import { ArtPiecePreview } from ".";
 
 jest.mock("../../context/ArtPiecesContext", () => ({
@@ -16,7 +16,6 @@ jest.mock("../FavoriteButton", () => ({
 }));
 
 beforeAll(() => {
-  // Setup that needs to run once before all tests go here
   window.matchMedia = jest.fn().mockImplementation(() => ({
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
