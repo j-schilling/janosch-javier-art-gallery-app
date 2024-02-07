@@ -8,8 +8,6 @@ import {
 import classes from "./Comments.module.css";
 
 export default function Comments({ comments }) {
-  console.log("artPiecesInfo", artPiecesInfo);
-
   return (
     <ul>
       {comments.length > 0 ? (

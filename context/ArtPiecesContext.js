@@ -1,11 +1,17 @@
 import React, { createContext, useContext, useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 const ArtPiecesContext = createContext();
 
 export const useArtPieces = () => useContext(ArtPiecesContext);
 
 export const ArtPiecesProvider = ({ children }) => {
-  const [artPiecesInfo, setArtPiecesInfo] = useState({});
+  const [artPiecesInfo, setArtPiecesInfo] = useLocalStorageState(
+    "artPiecesInfo",
+    {
+      defaultValue: {},
+    }
+  );
   console.log("artPiecesInfo", artPiecesInfo);
   const toggleFavorite = (artPiece) => {
     const { slug } = artPiece;
