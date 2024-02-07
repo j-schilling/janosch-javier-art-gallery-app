@@ -2,6 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Container, Group } from "@mantine/core";
 import classes from "./Navigation.module.css";
+import { useRouter } from "next/router";
 
 const links = [
   { link: "/", label: "Get inspired" },
@@ -10,7 +11,9 @@ const links = [
 ];
 
 export function Navigation() {
-  const [active, setActive] = useState(links[0].link);
+  const router = useRouter();
+
+  const [active, setActive] = useState(router.asPath);
 
   const items = links.map((link) => (
     <Link
