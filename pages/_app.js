@@ -7,7 +7,7 @@ import { ArtPiecesProvider } from "@/context/ArtPiecesContext";
 
 const theme = createTheme({
   fontFamily: "Open Sans, sans-serif",
-  primaryColor: "cyan",
+  primaryColor: "red",
 });
 
 const API_URL = "https://example-apis.vercel.app/api/art";
