@@ -28,7 +28,7 @@ export default function Spotlight(props) {
     <div className={classes.spotlight}>
       <Card withBorder padding="lg" className={classes.card}>
         <Card.Section>
-          <Image src={imageSource} alt={name} height={500} />
+          <Image src={imageSource} alt={name} height={400} />
         </Card.Section>
 
         <Group justify="space-between" mt="xl">

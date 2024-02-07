@@ -1,3 +1,8 @@
+.h1 {
+  margin: 25px;
+  text-align: center;
+}
+
 .ul {
   list-style-type: none;
   padding: 3vh 3vw;
@@ -5,4 +10,8 @@
 }
 .li {
   margin-bottom: 4vh;
+}
+
+.p {
+  text-align: center;
 }

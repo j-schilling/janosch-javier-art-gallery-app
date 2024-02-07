@@ -1,4 +1,7 @@
 .spotlight {
-  margin: 1vh 2vw;
-  padding: 1vh 2vw;
+  /* margin: 1vh 2vw;
+  padding: 1vh 2vw; */
+  padding: 3vh 3vw;
+  margin: 3vh 3vw;
+  margin-bottom: 10vh;
 }

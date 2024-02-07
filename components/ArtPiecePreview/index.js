@@ -14,7 +14,7 @@ export function ArtPiecePreview({ ...props }) {
       <Link href={`/art-pieces/${slug}`} className={classes.detaillink}>
         <Card withBorder padding="lg" className={classes.card}>
           <Card.Section>
-            <Image src={image} alt={title} height={400} />
+            <Image src={image} alt={title} height={300} />
           </Card.Section>
 
           <Group justify="space-between" mt="xl">
