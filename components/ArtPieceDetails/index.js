@@ -10,6 +10,7 @@ export default function ArtPieceDetails({ ...props }) {
   const { imageSource: image, name: title, artist, year, genre, slug } = props;
   const { addComment, artPiecesInfo, toggleFavorite } = useArtPieces();
   const isFavorite = artPiecesInfo[slug]?.isFavorite || false;
+  const comments = artPiecesInfo[slug]?.comments || [];
 
   function onSubmitComment(e) {
     e.preventDefault();
@@ -72,11 +73,7 @@ export default function ArtPieceDetails({ ...props }) {
         <Button className={classes.backbutton}>Back to overview</Button>
       </Link>
       <CommentForm onSubmitComment={onSubmitComment} />
-      <Comments />
-      <Comments />
-      <Comments />
-      <Comments />
-      <Comments />
+      <Comments comments={comments} />
     </div>
   );
 }

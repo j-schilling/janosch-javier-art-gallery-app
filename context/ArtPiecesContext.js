@@ -31,12 +31,12 @@ export const ArtPiecesProvider = ({ children }) => {
         [slug]: {
           ...currentInfo[slug],
           comments: [
-            ...existingComments,
             {
               date: currentDate.toLocaleDateString(),
               time: currentDate.toLocaleTimeString(),
               comment: comment,
             },
+            ...existingComments,
           ],
         },
       };
