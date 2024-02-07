@@ -1,4 +1,4 @@
-import { ArtPiecePreview, CardWithStats } from "../ArtPiecePreview";
+import { ArtPiecePreview } from "../ArtPiecePreview";
 import classes from "./ArtPieces.module.css";
 
 export default function ArtPieces({ pieces }) {
