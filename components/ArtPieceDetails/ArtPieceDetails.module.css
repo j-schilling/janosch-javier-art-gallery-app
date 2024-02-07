@@ -1,6 +1,8 @@
 .card {
   background-color: var(--mantine-color-body);
   border-radius: 8px;
+  padding: 3vh 3vw;
+  margin: 5vh 5vw;
 }
 
 .footer {
@@ -14,6 +16,8 @@
 .title {
   font-family: Greycliff CF, var(--mantine-font-family);
   line-height: 1;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 .backbutton {

@@ -13,7 +13,7 @@ export default function Favorites() {
 
   return (
     <div>
-      <h1>Favoritos</h1>
+      <h1 className={classes.h1}>My favorite art pieces</h1>
       <ul className={classes.ul}>
         {favoritePieces.length > 0 ? (
           favoritePieces.map((piece) => (
@@ -22,7 +22,9 @@ export default function Favorites() {
             </li>
           ))
         ) : (
-          <p>There is no favorites pieces of art to show.</p>
+          <p className={classes.p}>
+            You did not mark any art pieces as favorites yet.
+          </p>
         )}
       </ul>
     </div>

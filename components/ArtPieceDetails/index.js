@@ -5,8 +5,10 @@ import { useArtPieces } from "@/context/ArtPiecesContext";
 import CommentForm from "../CommentForm";
 import Comments from "../Comments";
 import FavoriteButton from "../FavoriteButton";
+import { useRouter } from "next/router";
 
 export default function ArtPieceDetails({ ...props }) {
+  const router = useRouter();
   const {
     imageSource: image,
     name: title,
@@ -88,9 +90,9 @@ export default function ArtPieceDetails({ ...props }) {
         />
       </Card>
 
-      <Link href="/art-pieces">
-        <Button className={classes.backbutton}>Back to overview</Button>
-      </Link>
+      <Button className={classes.backbutton} onClick={() => router.back()}>
+        Back to overview
+      </Button>
       <CommentForm onSubmitComment={onSubmitComment} />
       <Comments comments={comments} />
     </div>
