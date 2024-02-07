@@ -36,8 +36,6 @@ describe("ArtPieces", () => {
 
     render(<ArtPieces pieces={pieces} />);
 
-    // Since we mocked ArtPiecePreview, we can't directly check for its presence.
-    // Instead, we can check for the mock's output or check that the list items are rendered.
     const listItems = screen.getAllByRole("listitem");
     expect(listItems).toHaveLength(pieces.length);
   });
