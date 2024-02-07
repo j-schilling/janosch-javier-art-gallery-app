@@ -11,7 +11,7 @@ export default function CommentForm({ onSubmitComment }) {
         className={classes.input}
       />
       <button type="submit" className={classes.submitbutton}>
-        Submit
+        Send
       </button>
     </form>
   );
