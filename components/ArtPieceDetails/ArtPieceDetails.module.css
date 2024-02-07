@@ -24,3 +24,16 @@
 .details__container {
   margin-bottom: 12vh;
 }
+
+.colorcontainer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  padding: 15px;
+  border-radius: 70px;
+}
+
+.color {
+  height: 10vh;
+  flex-grow: 1;
+}

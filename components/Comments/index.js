@@ -1,10 +1,4 @@
-import {
-  Text,
-  Avatar,
-  Group,
-  TypographyStylesProvider,
-  Paper,
-} from "@mantine/core";
+import { Text, Group, TypographyStylesProvider, Paper } from "@mantine/core";
 import classes from "./Comments.module.css";
 
 export default function Comments({ comments }) {
