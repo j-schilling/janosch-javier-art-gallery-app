@@ -1,4 +1,4 @@
-import { Card, Image, Text, Group, Button } from "@mantine/core";
+import { Card, Image, Text, Group, Button, CardSection } from "@mantine/core";
 import classes from "./ArtPieceDetails.module.css";
 import Link from "next/link";
 import { useArtPieces } from "@/context/ArtPiecesContext";
@@ -7,7 +7,15 @@ import Comments from "../Comments";
 import FavoriteButton from "../FavoriteButton";
 
 export default function ArtPieceDetails({ ...props }) {
-  const { imageSource: image, name: title, artist, year, genre, slug } = props;
+  const {
+    imageSource: image,
+    name: title,
+    artist,
+    year,
+    genre,
+    slug,
+    colors,
+  } = props;
   const { addComment, artPiecesInfo, toggleFavorite } = useArtPieces();
   const isFavorite = artPiecesInfo[slug]?.isFavorite || false;
   const comments = artPiecesInfo[slug]?.comments || [];
@@ -62,6 +70,17 @@ export default function ArtPieceDetails({ ...props }) {
             </Text>
           </div>
         </Card.Section>
+        <CardSection className={classes.colorcontainer}>
+          {colors.map((color) => {
+            return (
+              <div
+                key={color}
+                style={{ backgroundColor: color }}
+                className={classes.color}
+              ></div>
+            );
+          })}
+        </CardSection>
 
         <FavoriteButton
           isFavorite={isFavorite}
