@@ -6,7 +6,7 @@ export const useArtPieces = () => useContext(ArtPiecesContext);
 
 export const ArtPiecesProvider = ({ children }) => {
   const [artPiecesInfo, setArtPiecesInfo] = useState({});
-
+  console.log("artPiecesInfo", artPiecesInfo);
   const toggleFavorite = (artPiece) => {
     const { slug } = artPiece;
 
@@ -26,6 +26,7 @@ export const ArtPiecesProvider = ({ children }) => {
     setArtPiecesInfo((currentInfo) => {
       const existingComments = currentInfo[slug]?.comments || [];
       const currentDate = new Date();
+
       return {
         ...currentInfo,
         [slug]: {

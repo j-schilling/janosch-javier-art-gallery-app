@@ -2,6 +2,8 @@ import { Text, Group } from "@mantine/core";
 import classes from "./Comments.module.css";
 
 export default function Comments({ comments }) {
+  console.log("artPiecesInfo", artPiecesInfo);
+
   return (
     <div className={classes.comments}>
       <Group>
