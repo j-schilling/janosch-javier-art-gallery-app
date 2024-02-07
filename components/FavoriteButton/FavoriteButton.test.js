@@ -21,9 +21,9 @@ describe("FavoriteButton", () => {
 
     const button = screen.getByRole("button");
 
-    expect(button).toHaveTextContent("🤍 Favorite");
+    expect(button).toHaveTextContent("🤍 Add to favorites");
   });
-  it('should render a button element with the text "🤍 Favorite" when isFavorite is true', () => {
+  it('should render a button element with the text "❤️ Remove from favorites" when isFavorite is true', () => {
     render(
       <MantineProvider>
         <FavoriteButton isFavorite={true} onToggleFavorite={() => {}} />
@@ -32,6 +32,6 @@ describe("FavoriteButton", () => {
 
     const button = screen.getByRole("button");
 
-    expect(button).toHaveTextContent("❤️ Unfavorite");
+    expect(button).toHaveTextContent("❤️ Remove from favorites");
   });
 });

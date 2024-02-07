@@ -3,6 +3,7 @@ import { useState } from "react";
 import "@mantine/core/styles.css";
 import { createTheme, MantineProvider, GlobalStyles } from "@mantine/core";
 import Layout from "@/components/Layout";
+import Head from "next/head";
 import { ArtPiecesProvider } from "@/context/ArtPiecesContext";
 
 const theme = createTheme({
@@ -24,6 +25,9 @@ export default function App({ Component, pageProps }) {
     <MantineProvider theme={theme} defaultColorScheme="dark">
       <Layout>
         <ArtPiecesProvider>
+          <Head>
+            <title>Janosch & Javier App</title>
+          </Head>
           <Component {...pageProps} globalData={data} />
         </ArtPiecesProvider>
       </Layout>

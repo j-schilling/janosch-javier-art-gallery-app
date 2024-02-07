@@ -29,6 +29,9 @@ jest.mock("../FavoriteButton", () => {
     return <div>Mocked FavoriteButton</div>;
   };
 });
+jest.mock("next/router", () => ({
+  useRouter: jest.fn(),
+}));
 
 beforeAll(() => {
   window.matchMedia = jest.fn().mockImplementation(() => ({

@@ -9,6 +9,7 @@ export default function CommentForm({ onSubmitComment }) {
         label="Comment"
         placeholder="Write your comment here"
         className={classes.input}
+        required={true}
       />
       <button type="submit" className={classes.submitbutton}>
         Send
