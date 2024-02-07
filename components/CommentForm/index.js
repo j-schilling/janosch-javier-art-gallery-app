@@ -1,5 +1,6 @@
 import { TextInput } from "@mantine/core";
 import classes from "./CommentForm.module.css";
+import { Button } from "@mantine/core";
 
 export default function CommentForm({ onSubmitComment }) {
   return (
@@ -11,9 +12,13 @@ export default function CommentForm({ onSubmitComment }) {
         className={classes.input}
         required={true}
       />
-      <button type="submit" className={classes.submitbutton}>
+      <Button
+        type="submit"
+        className={classes.submitbutton}
+        color="rgb(15, 88, 85)"
+      >
         Send
-      </button>
+      </Button>
     </form>
   );
 }
