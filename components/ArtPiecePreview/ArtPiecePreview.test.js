@@ -1,30 +1,51 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import ArtPiecePreview from ".";
+import "@testing-library/jest-dom";
+import { MantineProvider, createTheme } from "@mantine/core";
+import { ArtPiecePreview } from ".";
 
-jest.mock("use-local-storage-state", () => {
-  return jest.fn(() => [jest.fn(), jest.fn()]);
+jest.mock("../../context/ArtPiecesContext", () => ({
+  useArtPieces: () => ({
+    artPiecesInfo: {},
+    toggleFavorite: jest.fn(),
+  }),
+}));
+
+jest.mock("../FavoriteButton", () => ({
+  __esModule: true,
+  default: jest.fn(() => <div>Mock Favorite Button</div>),
+}));
+
+beforeAll(() => {
+  // Setup that needs to run once before all tests go here
+  window.matchMedia = jest.fn().mockImplementation(() => ({
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+  }));
 });
 
-test("renders an image", () => {
-  const prop = [
-    {
-      slug: "orange-red-and-green",
-      artist: "Steve Johnson",
-      name: "Orange Red and Green Abstract Painting",
-      imageSource:
-        "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
-      year: "2018",
-      genre: "Abstract Painting",
-      colors: ["#0F5855", "#E6BA15", "#B42011", "#CEC4C6", "#D5561F"],
-      dimensions: {
-        height: 2432,
-        width: 1920,
-        type: "jpg",
-      },
-    },
-  ];
-  render(<ArtPiecePreview props={prop} />);
-  const image = screen.getByRole("img", {});
-  expect(image).toBeInTheDocument();
+describe("ArtPiecePreview", () => {
+  const mockProps = {
+    slug: "test-slug",
+    imageSource: "test-image.jpg",
+    name: "Test Name",
+    artist: "Test Artist",
+  };
+
+  it("renders correctly", () => {
+    render(
+      <MantineProvider>
+        <ArtPiecePreview {...mockProps} />
+      </MantineProvider>
+    );
+
+    const image = screen.getByRole("img");
+
+    expect(image).toHaveAttribute("src", "test-image.jpg");
+    expect(image).toHaveAttribute("alt", "Test Name");
+
+    expect(screen.getByText("Test Name")).toBeInTheDocument();
+    expect(screen.getByText("Test Artist")).toBeInTheDocument();
+
+    expect(screen.getByText("Mock Favorite Button")).toBeInTheDocument();
+  });
 });
